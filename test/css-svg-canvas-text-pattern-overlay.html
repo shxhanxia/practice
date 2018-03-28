@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>css-svg-canvas-text-pattern-overlay</title>
+    <style>
+        .pattern-overlay {
+            font-size: 60px;
+            font-family: 'microsoft yahei', 'sans-serif';
+            background-image: url("images/ps1.jpg");
+            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+        }
+        .pattern-overlay span {
+            position: absolute;
+            background-image: linear-gradient(to bottom, red, yellow);
+            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+            mix-blend-mode: overlay;
+        }
+        .pattern-overlay span:before {
+            content: attr(data-test);
+        }
+    </style>
+</head>
+
+<body>
+<h2 class="pattern-overlay">
+    <span data-test="css纹理叠加"></span>
+    css纹理叠加
+</h2>
+</body>
+</html>

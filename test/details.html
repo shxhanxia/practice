@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>details</title>
+    <style>
+        summary {
+            width: fit-content;
+            direction: rtl;
+        }
+
+        details ::-webkit-details-marker {
+            direction: ltr;
+            color: gray;
+            margin-left: .5ch;
+        }
+    </style>
+</head>
+<body>
+<details>
+    <summary>这是摘要1</summary>
+    <p>具体描述&lt;p&gt;</p>
+</details>
+</body>
+<script type="text/javascript" src="js/details-element-polyfill.js"></script>
+</html>

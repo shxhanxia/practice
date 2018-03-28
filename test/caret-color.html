@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>caret-color</title>
+    <meta name="viewport"
+    content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <style>
+        input {
+            display: block;
+            width: 200px;
+            margin: 10px 0;
+        }
+        .input1, .input3 {
+            color: #333;
+            caret-color: red;
+        }
+
+        .input2 {
+            color: red;
+        }
+
+        .input2::first-line {
+            color: #333;
+        }
+
+        @supports (-webkit-mask: none) and (not (caret-color: red)) {
+            .input3 {
+                color: red;
+            }
+
+            .input3::first-line {
+                color: #333;
+            }
+        }
+        .input4 {
+            color: red;
+            color\0: #333;
+            text-shadow: 0 0 0 #333;
+            -webkit-text-fill-color: transparent;
+        }
+        .input5 {
+            color: red;
+            color\0: #333;
+            -webkit-text-fill-color: #333;
+        }
+    </style>
+</head>
+
+<body>
+<input class="input1" type="text" value="使用 caret-color">
+<input class="input2" type="text" value="使用 first-line">
+<input class="input3" type="text" value="混合 caret-color 和 first-line">
+<p>下面两个输入框使用hack对IE做了兼容</p>
+<input class="input4" type="text" value="text-shadow 和 text-fill-color">
+<input class="input5" type="text" value="纯 text-fill-color">
+<pre>
+    input {
+            display: block;
+            width: 200px;
+            margin: 10px 0;
+        }
+        .input1, .input3 {
+            color: #333;
+            caret-color: red;
+        }
+
+        .input2 {
+            color: red;
+        }
+
+        .input2::first-line {
+            color: #333;
+        }
+
+        @supports (-webkit-mask: none) and (not (caret-color: red)) {
+            .input3 {
+                color: red;
+            }
+
+            .input3::first-line {
+                color: #333;
+            }
+        }
+        .input4 {
+            color: red;
+            color\0: #333;
+            text-shadow: 0 0 0 #333;
+            -webkit-text-fill-color: transparent;
+        }
+        .input5 {
+            color: red;
+            color\0: #333;
+            -webkit-text-fill-color: #333;
+        }
+</pre>
+</body>
+</html>

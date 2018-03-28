@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dot</title>
+    <style>
+        span {
+            display: inline-block;
+            height: 1em;
+            line-height: 1;
+            text-align: left;
+            vertical-align: -.25em;
+            overflow: hidden;
+        }
+
+        span::before {
+            display: block;
+            content: '...\A..\A.';
+            white-space: pre-wrap;
+            animation: dot 3s infinite step-end both;
+            animation\0: dot 3s infinite step-start both; /* 现代浏览器使用start, end都ok, 但是edge只能end, IE只能start, 所以在此使用hack, 在IE时使用start, 其他用end */
+        }
+
+        @keyframes dot {
+            33% {
+                transform: translateY(-2em);
+            }
+            66% {
+                transform: translateY(-1em);
+            }
+        }
+    </style>
+</head>
+
+<body>
+<span>...</span>
+</body>
+</html>

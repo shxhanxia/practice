@@ -5,80 +5,37 @@
   <meta charset="UTF-8">
   <title>测试页面</title>
   <!--<meta name="viewport"-->
-        <!--content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">-->
+  <!--content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">-->
   <style>
-    textarea {
-      display: block;
-      width: 100%;
-      height: 400px;
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      grid-gap: 10px;
+      background-color: green;
+      border: 1px solid green;
+      grid-auto-rows: minmax(100px, auto);
+    }
+    .grid > * {
+      background-color: red;
+    }
+    .grid .three {
+      grid-column: 1 / 3;
     }
   </style>
 </head>
 
 <body>
-<input type="file" accept="text/*" id="upfile">
-<textarea id="oldCode"></textarea>
-<button id="start">压缩</button>
-<textarea id="showCode"></textarea>
-<a href="javascript:" id="down">下载</a>
+  <div class="grid">
+    <div class="one">auto</div>
+    <div class="two">Auto sized rows or columns will expand to take the amount of content that has been added to them. As the default for a track is auto, many layouts will not need to specify rows in the explicit grid at all.</div>
+    <div class="three">Remember that any change to the size of a row or column happens right across the track!</div>
+  </div>
 </body>
 <script type="text/javascript" src="https://libs.baidu.com/jquery/2.1.1/jquery.min.js"></script>
 <script type="text/javascript">
   (function () {
     console.log('%c韩侠是最帅的! %c点击此处,进入韩侠的博客%chttp://hanxia.work', 'color:red', 'color:black', 'color:blue');
     console.log(!window.VBArray ? '不是IE浏览器' : '是IE浏览器', !-[1,] ? '是IE8及以下浏览器' : '是IE9及以上浏览器');
-    console.log(1);
   })();
-  var eleUpfile = document.getElementById('upfile');
-  var eleInput = document.getElementById('oldCode');
-  var eleOutput = document.getElementById('showCode');
-  var eleStart = document.getElementById('start');
-  var eleDown = document.getElementById('down');
-
-  var reader = new FileReader();
-  reader.onload = function(event) {
-    eleInput.value = event.target.result;
-    eleStart.click();
-
-    var blob = new Blob([eleOutput.value]);
-    eleDown.href = URL.createObjectURL(blob);
-  }
-
-  eleStart.onclick = function() {
-    var v_old = eleInput.value,v_new;
-    var l = v_old.length;
-    if(l === 0){
-      alert("尚未添加CSS代码");
-      return false;
-    }
-    v_new = v_old;
-    console.log(v_old.length);
-    // //this.disabled = "disabled";
-    // //开始执行压缩
-    // //去除注释
-    // v_new = v_old.replace(/\/\*((.|\n|\t)*?)\*\//g,"");
-    // //除去首尾空格
-    // v_new = v_new.replace(/(\s)*{\s*/g,"{").replace(/(\s)*}\s*/g,"}");
-    // //去除样式间空格
-    // v_new  = v_new.replace(/(\s)*;\s*/g,";");
-    // //去除样式名称后面空格
-    // v_new  = v_new.replace(/:(\s)*/g,":");
-    // //去除换行符
-    // v_new  = v_new.replace(/(\n|\t)+/g,"");
-    // //去除末尾分号
-    // v_new  = v_new.replace(/;}/g,"}");
-    eleOutput.value = v_new;
-  }
-
-  eleDown.onclick = function() {
-    console.log(2);
-  }
-
-  eleUpfile.onchange = function(event) {
-    var file = event.target.files[0];
-
-    eleDown.setAttribute('download', file.name.replace(/\.css/, '-min.js'));
-    reader.readAsText(file);
-  };
 </script>
 </html>

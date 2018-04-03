@@ -7,35 +7,18 @@
   <!--<meta name="viewport"-->
   <!--content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">-->
   <style>
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      grid-gap: 10px;
-      background-color: green;
-      border: 1px solid green;
-      grid-auto-rows: minmax(100px, auto);
-    }
-    .grid > * {
-      background-color: red;
-    }
-    .grid .three {
-      grid-column: 1 / 3;
-    }
+    
   </style>
 </head>
 
 <body>
-  <div class="grid">
-    <div class="one">auto</div>
-    <div class="two">Auto sized rows or columns will expand to take the amount of content that has been added to them. As the default for a track is auto, many layouts will not need to specify rows in the explicit grid at all.</div>
-    <div class="three">Remember that any change to the size of a row or column happens right across the track!</div>
-  </div>
+  
 </body>
 <script type="text/javascript" src="https://libs.baidu.com/jquery/2.1.1/jquery.min.js"></script>
 <script type="text/javascript">
   (function () {
     console.log('%c韩侠是最帅的! %c点击此处,进入韩侠的博客%chttp://hanxia.work', 'color:red', 'color:black', 'color:blue');
-    console.log(!window.VBArray ? '不是IE浏览器' : '是IE浏览器', !-[1,] ? '是IE8及以下浏览器' : '是IE9及以上浏览器');
+    console.log(!window.VBArray ? '不是IE浏览器' : !-[1,] ? '是IE8及以下浏览器' : '是IE9及以上浏览器');
   })();
 </script>
 </html>

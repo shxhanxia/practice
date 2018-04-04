@@ -2,7 +2,7 @@
 const fs = require('fs');
 const path = require('path');
 //解析需要遍历的文件夹，我这以F盘为例
-var filePath = path.resolve('F:/WWW/practice/o2o_vue/node_modules');
+var filePath = path.resolve('F:/WWW');
 
 //调用文件遍历方法
 fileDisplay(filePath);
